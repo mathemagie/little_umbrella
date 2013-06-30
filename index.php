@@ -30,9 +30,20 @@ $day = substr($yw_forecast['condition']['date'],0,stripos($yw_forecast['conditio
 
 //echo "<" . $yw_forecast['forecast'][$day]['code'] . ">";
 //echo "<" . $yw_forecast['forecast'][$day]['code'] . ">";
-$code_weather = $yw_forecast['forecast'][$day]['code'];
-echo $code_weather;
-echo "<0>";
 
+$code_weather = $yw_forecast['forecast'][$day]['code'];
+
+$status[0] = array("19","20","21","22","23","24","31");//parapluie ferm√
+$status[1] = array("0","1","2","3","4","5");//ouvert
+
+//$code_weather = "4";//fake code
+foreach (array_keys($status) as $st) {
+	if (in_array($code_weather,$status[$st])) {
+		$right_status = $st;
+	}
+	
+}
+//echo $code_weather;
 //var_dump($yw_forecast)
+echo "<" . $right_status . ">";
 ?>
