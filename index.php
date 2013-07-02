@@ -33,7 +33,7 @@ $day = substr($yw_forecast['condition']['date'],0,stripos($yw_forecast['conditio
 
 $code_weather = $yw_forecast['forecast'][$day]['code'];
 
-$status[0] = array("19","20","21","22","23","24","31","30");//parapluie fermÃ
+$status[0] = array("19","20","21","22","23","24","29","31","30");//parapluie fermÃ
 $status[1] = array("0","1","2","3","4","5");//ouvert
 
 //$code_weather = "4";//fake code
