@@ -10,4 +10,4 @@ TODO
 - Développer interface de test (mathemagie.net/litte_umbrella/test.php) dans le but de pouvoir envoyer 
 un ordre au parapluie (ouvert, fermé) en bypassant le code retour de l'API yahoo
 - test de l'API realtime avec pusher
-
+- Etablir un 3 eme etats (intermediaire) 
