@@ -6,5 +6,5 @@ Connected umbrella with Yahoo Weather API
 TODO
 ====
 
-- une forme plus avancée à l'objet (impression 3d, découpe laser)
+- Produire une forme plus avancée à l'objet (impression 3d, découpe laser) version 2.0
 
