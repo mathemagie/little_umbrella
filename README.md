@@ -7,3 +7,4 @@ TODO
 ====
 
 - une forme plus avancée à l'objet (impression 3d, découpe laser)
+- produire plusieurs interfaces indetiques. 
