@@ -1,5 +1,12 @@
 <?php
-$weather_feed = file_get_contents("http://weather.yahooapis.com/forecastrss?w=615702&u=c");
+if ($_GET['city'] == 'paris') $woeid = '615702';
+if ($_GET['city'] == 'newyork') $woeid = '2459115';
+
+if (empty($woeid)) {
+	echo "need woeid";
+	exit();
+}
+$weather_feed = file_get_contents("http://weather.yahooapis.com/forecastrss?w=" . $woeid . "&u=c");
 $weather = simplexml_load_string($weather_feed);
 if(!$weather) die('weather failed');
 $copyright = $weather->channel->copyright;
@@ -46,4 +53,5 @@ foreach (array_keys($status) as $st) {
 }
 //var_dump($yw_forecast)
 echo "<" . $right_status . ">";
+//echo "<0>";
 ?>
