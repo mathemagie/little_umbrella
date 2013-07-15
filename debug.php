@@ -91,7 +91,7 @@ if (active_debug()) {
 
     <div class="row-fluid">
       <div class="span3">
-      <a class="btn btn-large" type="button" href='debug.php?do=<?php echo $action;?>'><?php echo $action;?></a>
+      <a class="btn btn-large" type="button" href='debug.php?do=<?php echo $action_parapluie;?>'><?php echo $action_parapluie;?></a>
       </div>
     </div>
     <br/>
