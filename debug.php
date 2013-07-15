@@ -51,6 +51,22 @@ if ($_GET['do'] == 'remove') {
 }
 
 if ($_GET['do'] == 'close') close_umbrella();
+
+if (is_open()) {
+  $action_parapluie = 'close';
+}else {
+  $action_parapluie ='open';
+}
+
+if (active_debug()) {
+  $action = 'remove';
+  $class_button = 'btn-danger';
+}else {
+  $action='open';
+  $class_button = '';
+}
+      
+
 ?>
 <!doctype html>
 <html>
@@ -69,39 +85,20 @@ if ($_GET['do'] == 'close') close_umbrella();
   </style>
 </head>
 <body>
- <div class="container">
+  <div class="container">
 
-      <h1>Little umbrella debug</h1><br/>
+  <h1>Little umbrella debug</h1><br/>
 
-	<div class="row-fluid">
-	  <div class="span4">
-      <?php if (is_open()) {
-       
-        $action = 'close';
-      }else {
-        $action='open';
-      }
-      ?>
-		<a class="btn btn-large btn-primary" type="button" href='debug.php?do=<?php echo $action;?>'><?php echo $action;?></a>
-	</div>
-	</div>
-	<br/>
-
-   <?php if (active_debug()) {
-        $action = 'remove';
-      }else {
-        $action='open';
-      }
-      ?>
-
-	<div class="row-fluid">
-	  <div class="span4">
-		<a class="btn btn-large btn-primary" type="button" href='debug.php?do=<?php echo $action;?>'><?php echo $action;?> debug mode</a>
-	</div>
-	</div>
-
-
-    </div> <!-- /container -->
-
-
+    <div class="row-fluid">
+      <div class="span3">
+      <a class="btn btn-large" type="button" href='debug.php?do=<?php echo $action;?>'><?php echo $action;?></a>
+      </div>
+    </div>
+    <br/>
+    <div class="row-fluid">
+      <div class="span3">
+      <a class="btn btn-large <?php echo $class_button;?>" type="button" href='debug.php?do=<?php echo $action;?>'><?php echo $action;?> debug mode</a>
+      </div>
+    </div>
+  </div> <!-- /container -->
 </body>
