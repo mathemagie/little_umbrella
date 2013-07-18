@@ -1,0 +1,79 @@
+body,td,th {
+	font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-size: 14px;
+}
+
+a {
+
+	text-decoration: none;
+
+		}
+
+
+
+a:link {
+
+	color: #000000;
+	font-weight: normal;
+  	}
+
+
+
+a:visited {
+
+	color: #000000;
+
+	}
+
+
+
+a:active {
+
+	color: #000000;
+
+	}
+
+
+
+a:hover {
+	color: #666;
+	font-weight: normal;
+	}
+.text-small {
+	font-size: 11px;
+}
+.text-grand {
+	font-size: 17px;
+}
+.text-link-small {
+	font-size: 19px;
+}
+.mileu {
+	text-align: center;
+	font-size: 14px;
+
+}
+.italic-texte {
+	font-style: italic;
+}
+.text-grand a {
+	text-align: center;
+}
+.text-grand a {
+	text-align: center;
+}
+.titre {
+	text-align: center;
+}
+.boutons {
+	font-size: 16px;
+}
+.justifie {
+	text-align: left;
+}
+.just {
+	text-align: justify;
+}
+.progress {
+	font-size: 12px;
+}
