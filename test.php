@@ -1,6 +1,6 @@
 <?php
 
-require_once 'client_js/pusher-php-server/lib/Pusher.php';
+require_once 'client_js/pusher-php-server-master/lib/Pusher.php';
 
 $app_id = '34650';
 $app_key = 'b001467f86773130f94c';
