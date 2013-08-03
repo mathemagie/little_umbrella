@@ -1,0 +1,67 @@
+#include <Servo.h>
+#include <SPI.h>
+#include <Ethernet.h>
+#include <PusherClient.h>
+
+byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
+PusherClient client;
+Servo monServo; 
+int umbrella_status = 0;
+ 
+
+void setup() {
+  pinMode(2,OUTPUT);
+   monServo.attach(9); 
+  
+   monServo.write(0);
+
+  Serial.begin(9600);
+  if (Ethernet.begin(mac) == 0) {
+    Serial.println("Init Ethernet failed");
+    for(;;)
+      ;
+  }
+  
+  if(client.connect("b001467f86773130f94c")) {
+  
+    client.bind("my_event", open_umbrella);
+    client.bind("close_umbrella", close_umbrella);
+    client.subscribe("test_channel");
+       Serial.println("bind process");
+  }
+  else {
+    while(1) {}
+  }
+}
+
+void loop() {
+  if (client.connected()) {
+    
+    client.monitor();
+  }
+  else {
+    monServo.write(20);
+   
+  }
+}
+
+void open_umbrella(String data) {
+  Serial.println(data);
+  if (umbrella_status == 0) {
+      monServo.write(180);
+       Serial.println("ferme");
+  }else {
+     monServo.write(5);
+     Serial.println("ouvert");
+  }
+  umbrella_status = !umbrella_status;
+  
+ 
+}
+
+void close_umbrella(String data) {
+  Serial.println(data);
+  monServo.write(0);
+  
+ 
+}
