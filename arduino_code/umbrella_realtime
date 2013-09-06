@@ -24,8 +24,9 @@ void setup() {
   
   if(client.connect("b001467f86773130f94c")) {
   
-    client.bind("my_event", open_umbrella);
+    client.bind("my_event", toogle_umbrella);
     client.bind("close_umbrella", close_umbrella);
+    client.bind("open_umbrella", open_umbrella);
     client.subscribe("test_channel");
        Serial.println("bind process");
   }
@@ -45,7 +46,7 @@ void loop() {
   }
 }
 
-void open_umbrella(String data) {
+void toogle_umbrella(String data) {
   Serial.println(data);
   if (umbrella_status == 0) {
       monServo.write(50);
@@ -60,7 +61,15 @@ void open_umbrella(String data) {
 void close_umbrella(String data) {
   Serial.println(data);
   monServo.write(0);
+   umbrella_status = 0;
   
  
 }
 
+void open_umbrella(String data) {
+  Serial.println(data);
+  monServo.write(50);
+    umbrella_status = 1;
+  
+ 
+}
