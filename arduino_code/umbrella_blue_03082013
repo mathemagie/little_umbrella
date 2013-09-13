@@ -5,13 +5,12 @@
 
 byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED };
 PusherClient client;
-Servo monServo; 
+Servo monServo;
 int umbrella_status = 0;
- 
 
 void setup() {
   pinMode(2,OUTPUT);
-   monServo.attach(9); 
+   monServo.attach(9);
   
    monServo.write(0);
 
@@ -24,8 +23,9 @@ void setup() {
   
   if(client.connect("b001467f86773130f94c")) {
   
-    client.bind("my_event", open_umbrella);
+    client.bind("my_event", toogle_umbrella);
     client.bind("close_umbrella", close_umbrella);
+    client.bind("open_umbrella", open_umbrella);
     client.subscribe("test_channel");
        Serial.println("bind process");
   }
@@ -45,14 +45,12 @@ void loop() {
   }
 }
 
-void open_umbrella(String data) {
+void toogle_umbrella(String data) {
   Serial.println(data);
   if (umbrella_status == 0) {
       monServo.write(180);
-       Serial.println("ferme");
   }else {
      monServo.write(5);
-     Serial.println("ouvert");
   }
   umbrella_status = !umbrella_status;
   
@@ -61,7 +59,16 @@ void open_umbrella(String data) {
 
 void close_umbrella(String data) {
   Serial.println(data);
-  monServo.write(0);
+  monServo.write(180);
+   umbrella_status = 0;
+  
+ 
+}
+
+void open_umbrella(String data) {
+  Serial.println(data);
+  monServo.write(5);
+    umbrella_status = 1;
   
  
 }
