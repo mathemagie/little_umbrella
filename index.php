@@ -9,15 +9,15 @@ if (empty($woeid)) {
 }
 
 function active_debug() {
-    if (file_exists('order.txt')) return 1;
+    if (file_exists('debug/order.txt')) return 1;
     return 0;
 }
 
 function read_order(){
-    $handle = fopen('order.txt', 'r');
-  $contents = fread($handle, filesize('order.txt'));
+    $handle = fopen('debug/order.txt', 'r');
+  $contents = fread($handle, filesize('debug/order.txt'));
   fclose($handle);
-  return $contents;
+  return trim($contents);
 }
 
 $weather_feed = file_get_contents("http://weather.yahooapis.com/forecastrss?w=" . $woeid . "&u=c");
@@ -58,6 +58,7 @@ foreach (array_keys($status) as $st) {
 	}
 	
 }
+$right_status = 0;
 //var_dump($yw_forecast)
 if (active_debug()) {
     $content = read_order();
