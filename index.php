@@ -58,7 +58,7 @@ foreach (array_keys($status) as $st) {
 	}
 	
 }
-$right_status = 0;
+//$right_status = 0;
 //var_dump($yw_forecast)
 if (active_debug()) {
     $content = read_order();
