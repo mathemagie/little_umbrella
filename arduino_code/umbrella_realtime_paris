@@ -27,7 +27,7 @@ void setup() {
     client.bind("my_event", toogle_umbrella);
     client.bind("close_umbrella", close_umbrella);
     client.bind("open_umbrella", open_umbrella);
-    client.subscribe("test_channel");
+    client.subscribe("umbrella_paris");
        Serial.println("bind process");
   }
   else {
