@@ -26,16 +26,21 @@ void loop() {
 
   // Read command output. runShellCommand() should have passed "Signal: xx&":
   while (p.available()) {
-    int result = p.parseInt();          // look for an integer
-    if (result == 1) {
+    int result = p.parseInt();  
+
+    // look for an integer
+    monServo.write(result);
+    if (result > 10) {
       digitalWrite(ledPin, HIGH);//bug in parsing process
-       monServo.write(0);
+      // monServo.write(5);
+    }else {
+         digitalWrite(ledPin, LOW);//bug in parsing process
     }
    
-    if (result == 0) {
-        digitalWrite(ledPin, LOW);//bug in parsing process
-         monServo.write(90);
-    }
+    //if (result == 0) {
+      //  digitalWrite(ledPin, LOW);//bug in parsing process
+        // monServo.write(90);
+    //}
   
     
   } 
