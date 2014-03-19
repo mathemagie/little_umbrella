@@ -31,10 +31,10 @@ void loop() {
     // look for an integer
     monServo.write(result);
     if (result > 10) {
-      digitalWrite(ledPin, HIGH);//bug in parsing process
+      //digitalWrite(ledPin, HIGH);//bug in parsing process
       // monServo.write(5);
     }else {
-         digitalWrite(ledPin, LOW);//bug in parsing process
+        // digitalWrite(ledPin, LOW);//bug in parsing process
     }
    
     //if (result == 0) {
