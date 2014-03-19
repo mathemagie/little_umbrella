@@ -28,12 +28,12 @@ void loop() {
   while (p.available()) {
     int result = p.parseInt();          // look for an integer
     if (result == 1) {
-      digitalWrite(ledPin, HIGH);//bug in parsing process
+      //digitalWrite(ledPin, HIGH);//bug in parsing process
        monServo.write(0);
     }
    
     if (result == 0) {
-        digitalWrite(ledPin, LOW);//bug in parsing process
+        //digitalWrite(ledPin, LOW);//bug in parsing process
          monServo.write(90);
     }
   
