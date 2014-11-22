@@ -20,6 +20,7 @@ void loop() {
   // sends the result to the grep command to look for a line containing the word
   // "Signal:"  the result is passed to this sketch:
   p.runShellCommand("/usr/bin/curl http://mathemagie.net/little_umbrella/?city=newyork");
+  Serial.println("run curl");
 
   // do nothing until the process finishes, so you get the whole output:
   while(p.running());  
@@ -27,6 +28,8 @@ void loop() {
   // Read command output. runShellCommand() should have passed "Signal: xx&":
   while (p.available()) {
     int result = p.parseInt();  
+    Serial.println(result);
+    Serial.println("good");
 
     // look for an integer
     monServo.write(result);
