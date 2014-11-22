@@ -33,19 +33,7 @@ void loop() {
 
     // look for an integer
     monServo.write(result);
-    if (result > 10) {
-      //digitalWrite(ledPin, HIGH);//bug in parsing process
-      // monServo.write(5);
-    }else {
-        // digitalWrite(ledPin, LOW);//bug in parsing process
-    }
-   
-    //if (result == 0) {
-      //  digitalWrite(ledPin, LOW);//bug in parsing process
-        // monServo.write(90);
-    //}
   
-    
   } 
   delay(1000);  // wait 5 seconds before you do it again
 }
