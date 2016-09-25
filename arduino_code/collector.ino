@@ -3,6 +3,8 @@
 #include <Servo.h>
 
 const int ledPin = 13; 
+boolean setupgeo = false;
+String cmd;
 
 Servo monServo;
 
@@ -10,9 +12,32 @@ void setup() {
   Bridge.begin();   // Initialize the Bridge
    pinMode(ledPin, OUTPUT);
    monServo.attach(9); 
+   setupGeo();
 }
 
+void setupGeo() {
+  Process p;
+  Serial.println("setup geo"); 
+  String result;
+
+  p.runShellCommandAsynchronously("/usr/bin/setcity");
+  while(p.running());  
+ // Read command output. runShellCommand() should have passed "Signal: xx&":
+    while (p.available()) {
+         char c = p.read();
+        result += c;
+        //Serial.println(c);
+       
+  }
+  Serial.println(result);
+}
+  
 void loop() {
+  
+  if (setupgeo == false) {
+    setupGeo();
+    setupgeo = true;
+  }
   
    
   Process p;
