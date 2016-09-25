@@ -1,0 +1,9 @@
+#!/usr/bin/python
+
+import urllib2,sys, json,urllib
+
+f =  urllib2.Request('http://ipinfo.io/json')
+res = urllib2.urlopen(f)
+d = res.read()
+c=json.loads(d);city=c['city'];cc=str(c['country']).lower();
+print urllib2.urlopen('http://api.littleumbrella.io/v2/setcity.php?id=1&city=' + city + '&cc=' + cc).read()
